@@ -1,0 +1,52 @@
+1. 说明列表的浅拷贝和深拷贝的区别
+区别：浅拷贝是修改一个，另外一个复制的也会跟着改变；深拷贝是两个独立的个体
+
+2. 说明列表和元组的相同点和不同点
+相同点：都是一组字符串
+不同点：元组只能读取，不能增、删、改，列表都可以
+
+3. 请写出字符串支持的所有方法及说明（例如: lower 返回字符串的小写）
+upper()   返回字符串的大写
+swapcase() 交互大小写
+find()字符串查找，从左至右
+rfind()字符串查找，从右至左
+sort() 排序，默认为升序
+sort(reverse=True)排序，降序
+
+
+4. 使用选择排序算法实现排序[3, 5, 1, 7, 9, 6, 8]
+方法1：
+nums = [3, 5, 1, 7, 9, 6, 8]
+nums.sort()
+print(nums)
+方法2：
+nums = [3, 5, 1, 7, 9, 6, 8]
+length=len(nums)
+count=0
+swap_count=0
+for i in range(length):
+    	flag=False  #判断没有交换过
+    	for j in range(0,length-1-i):
+       		count +=1  #比较次数
+        	if nums[j+0]>nums[j+1]:
+            		tmp=nums[j]
+           	 	nums[j]=nums[j+1]
+            		nums[j+1]=tmp
+            		swap_count +=1 #交换次数
+            		flag=True
+        	if not flag:
+            		break
+print(nums)
+print(count,swap_count)
+
+5. 有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：
+POST 2
+GET 3
+下边是logs变量：
+logs = '''
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200 
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200 
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200 
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200 
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200 
+''' 
